@@ -1,0 +1,26 @@
+.navbar-container {
+    width: 100%;
+    padding-top: 20px;
+}
+
+.nav-buttons {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.home-btn, .post-btn, .profile-btn {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.title-text {
+    font-size: 24px;
+    color: #404040;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.art-text {
+    font-weight: bold;
+    color: #D38C00;
+}
