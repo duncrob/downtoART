@@ -4,9 +4,6 @@ function Upload() {
   return (
     <div className='upload-container'>
       <NavBar />
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
     </div>
   )
 }
