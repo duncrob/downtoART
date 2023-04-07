@@ -4,7 +4,6 @@ function Upload() {
   return (
     <div className='upload-container'>
       <NavBar />
-
     </div>
   )
 }
