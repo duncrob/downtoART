@@ -1,0 +1,21 @@
+.tab-bar {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 50px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+}
+
+.home-button, .post-button, .profile-button {
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
