@@ -6,9 +6,12 @@ function Home() {
   return (
     <div className='home-container'>
       <NavBar />
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
+      <div className="home-content">
+        <CategoryCard />
+        <CategoryCard />
+        <CategoryCard />
+      </div>
+
     </div>
   )
 }
