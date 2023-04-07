@@ -1,5 +1,8 @@
 .card-container {
-    width: 100%;
+    width: 326px;
     outline-style: solid;
-    height: 200px;
+    height: 265px;
+    border-radius: 25px;
+    background-color: #c0c0c0;
+    outline: none;
 }
