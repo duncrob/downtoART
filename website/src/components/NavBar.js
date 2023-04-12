@@ -11,7 +11,7 @@ function NavBar() {
             <div className='nav-buttons'>
                 <div className='search-btn'>
                     <FontAwesomeIcon icon={faSearch} size='xl' />
-                    <input type="text" placeholder="" class="search-bar"/>
+                    <input type="text" placeholder="" className="search-bar"/>
                 </div>
             </div>
         </div>

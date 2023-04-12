@@ -1,0 +1,135 @@
+.upload-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: scroll;
+    margin-bottom: 120px;
+}
+
+#file-img {
+    display: none;
+}
+
+.browse-label {
+    border: 3px solid black;
+    border-radius: 25px;
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+}
+
+.upload-container img {
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+.preview-img-window {
+    width: 80%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.next-btn {
+    color: #9c9c9c;
+    font-weight: 600;
+    font-size: 24px;
+    align-self: flex-end;
+    margin-right: 36px;
+}
+
+.next-btn:hover {
+    color: #FFA800;
+}
+
+.post-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #FFA800;
+}
+
+.metadata-input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #404040;
+    border-radius: 5px;
+    height: 44px;
+    margin-bottom: 16px;
+    margin-top: 2px;
+}
+
+.upload-form {
+    width: 75%;
+}
+
+.optional-txt {
+    font-size: 12px;
+    color: #9c9c9c;
+}
+
+.desc-txt, .desc-txt-p1 {
+    color: #9c9c9c;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.desc-txt-p1 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.tags-input {
+    margin-bottom: 0px;
+}
+
+.tags-desc {
+    margin-top: 0px;
+}
+
+.title-and-switch {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.add-process-btn {
+    border: 2px solid black;
+    border-radius: 50px;
+    width: 168px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.process-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.control-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+.back-btn {
+    color: #404040;
+}
+
+.post-btn {
+    color: #b3b3b3;
+}
+
+.hidden {
+    display: none;
+  }
