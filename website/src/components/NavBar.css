@@ -1,5 +1,6 @@
 .navbar-container {
     display: flex;
+    position: fixed;
     justify-content: space-between;
     width: 100%;
     padding-top: 20px;

@@ -3,10 +3,10 @@ import "./CategoryCard.css";
 function CategoryCard() {
     return (
         <div className='card-container'>
-            <img />
-            <div>
-                <div>#Process</div>
-                <div>10 Uploads</div>
+            <img className="category-img" src="../img/category.png"/>
+            <div className="category-text">
+                <div className="category-name">Following</div>
+                <div className="upload-number">2 Pieces</div>
             </div>
         </div>
     );

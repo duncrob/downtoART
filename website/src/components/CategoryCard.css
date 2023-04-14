@@ -1,8 +1,36 @@
+.category-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+}
+
+
 .card-container {
-    width: 326px;
-    outline-style: solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
     height: 265px;
+    outline-style: solid;
     border-radius: 25px;
     background-color: #c0c0c0;
     outline: none;
+    margin-bottom: 25px;
+}
+
+.category-name {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.upload-number {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.category-img {
+    width: 85%;
+    max-height: 200px;
+    padding: 25px 20px 6px 20px;
 }
