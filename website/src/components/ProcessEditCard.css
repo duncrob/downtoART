@@ -1,0 +1,52 @@
+.process-card-container {
+    background-color: #f8f6f1;
+    display: flex;
+    height: 110px;
+    margin-bottom: 14px;
+    justify-content: space-between;
+}
+
+.line {
+    background-color: #ffa800;
+    width: 6px;
+    height: 100%;
+}
+
+.disp-img {
+    max-width: 96px;
+    height: 96px;
+    margin-top: 7px;
+    margin-right: 8px;
+    object-fit: cover;
+}
+
+.title-input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    margin-bottom: 16px;
+    background-color: #f8f6f1;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.title-input:focus {
+    outline: none;
+}
+
+.description-input {
+    width: 100%;
+    background-color: #f8f6f1;
+    color: #FFA800;
+}
+
+.process-txt-inputs {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+
+.line-and-inputs {
+    display: flex;
+}
