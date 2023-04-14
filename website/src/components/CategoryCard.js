@@ -6,8 +6,7 @@ function CategoryCard() {
             <img className="category-img" src="../img/category.png"/>
             <div className="category-text">
                 <div className="category-name">Following</div>
-                <div className="red-dot"></div>
-                <div className="upload-number">1 New Update</div>
+                <div className="upload-number">2 Pieces</div>
             </div>
         </div>
     );

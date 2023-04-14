@@ -7,6 +7,7 @@ function Home() {
     <div className='home-container'>
       <NavBar />
       <div className="home-content">
+        <div className="home-header">Your Collection</div>
         <CategoryCard />
         <CategoryCard />
         <CategoryCard />
