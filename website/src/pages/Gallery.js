@@ -13,7 +13,7 @@ function Gallery() {
           <div className="back-btn">
             <FontAwesomeIcon icon={faChevronLeft} size='xl' />
           </div>
-        <div className="gallery-header">Your Collection</div>
+        <div className="gallery-header">#Sunset</div>
       </div>
       <div className="gallery-post">
         <img className="gallery-img" src="../img/category.png" alt="gallery image"/>
