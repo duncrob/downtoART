@@ -1,6 +1,7 @@
 import "./Home.css";
 import NavBar from "../components/NavBar";
 import CategoryCard from "../components/CategoryCard";
+import TabBar from "../components/TabBar";
 
 function Home() {
   return (
@@ -12,7 +13,7 @@ function Home() {
         <CategoryCard />
         <CategoryCard />
       </div>
-
+      <TabBar />
     </div>
   )
 }
