@@ -1,0 +1,41 @@
+.artview-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.artview-nav {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.back-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.key-img {
+    max-width: 100%;
+}
+
+.post-metadata {
+    background-color: #F4F2EA;
+    font-size: 14px;
+    width: 80%;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.post-title {
+    font-weight: 700;
+}
+
+.main-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

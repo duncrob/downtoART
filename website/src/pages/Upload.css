@@ -5,6 +5,7 @@
     flex-direction: column;
     overflow: scroll;
     margin-bottom: 120px;
+    padding-top: 100px;
 }
 
 #file-img {
