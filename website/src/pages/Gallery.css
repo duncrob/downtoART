@@ -1,0 +1,42 @@
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 120px;
+}
+
+.gallery-content{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.gallery-nav {
+    margin-bottom: 20px;
+}
+
+.gallery-header {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.back-btn {
+    position: absolute;
+    align-self: center;
+    margin-top: 6px;
+    margin-left: 5%;
+}
+
+.gallery-img {
+    width: 40%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    margin: 15px
+}
+
+.gallery-post {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
