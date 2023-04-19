@@ -9,9 +9,9 @@ function Home() {
       <NavBar />
       <div className="home-content">
         <div className="home-header">Your Collection</div>
-        <CategoryCard imgSrc="../img/category.png" title="Following" numPieces={2} />
-        <CategoryCard />
-        <CategoryCard />
+        <CategoryCard imgSrc="../img/following.png" title="Following" numPieces={2} />
+        <CategoryCard imgSrc="../img/categorySunset.png" title="#Sunset" numPieces={12} />
+        <CategoryCard imgSrc="../img/categoryAbstract.png" title="#Abstract" numPieces={4} />
       </div>
       <TabBar />
     </div>
