@@ -9,7 +9,7 @@ function Home() {
       <NavBar />
       <div className="home-content">
         <div className="home-header">Your Collection</div>
-        <CategoryCard />
+        <CategoryCard imgSrc="../img/category.png" title="Following" numPieces={2} />
         <CategoryCard />
         <CategoryCard />
       </div>

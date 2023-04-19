@@ -1,0 +1,25 @@
+.process-view-card-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin-top: 40px;
+}
+
+.process-img {
+    max-width: 100%;
+    height: auto;
+    align-self: center;
+}
+
+.process-metadata {
+    align-self: flex-end;
+    background-color: #F4F2EA;
+    width: 65%;
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.title-txt {
+    font-weight: 700;
+}

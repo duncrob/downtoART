@@ -3,3 +3,13 @@
 * {
   font-family: 'Poppins', sans-serif;
 }
+
+html {
+  background-image: url(../public/img/ProfileDesktopFloatingShapes.png);
+  background-size: cover;
+}
+
+a, a:hover, a:visited, a:active {
+  color: inherit;
+  text-decoration: none;
+ }
