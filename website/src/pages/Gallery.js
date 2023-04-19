@@ -16,18 +16,18 @@ function Gallery() {
         <div className="gallery-header">#Sunset</div>
       </div>
       <div className="gallery-post">
-        <img className="gallery-img" src="../img/category.png" alt="gallery image"/>
-        <img className="gallery-img" src="../img/category.png" alt="gallery image"/>
-        <img className="gallery-img" src="../img/category.png" alt="gallery image"/>
-        <img className="gallery-img" src="../img/category.png" alt="gallery image"/>
-        <img className="gallery-img" src="../img/category.png" alt="gallery image"/>
-        <img className="gallery-img" src="../img/category.png" alt="gallery image"/>
-        <img className="gallery-img" src="../img/category.png" alt="gallery image"/>
-        <img className="gallery-img" src="../img/category.png" alt="gallery image"/>
-        <img className="gallery-img" src="../img/category.png" alt="gallery image"/>
-        <img className="gallery-img" src="../img/category.png" alt="gallery image"/>
-        <img className="gallery-img" src="../img/category.png" alt="gallery image"/>
-        <img className="gallery-img" src="../img/category.png" alt="gallery image"/>
+        <img className="gallery-img" src="../img/category.png" alt="gallery"/>
+        <img className="gallery-img" src="../img/category.png" alt="gallery"/>
+        <img className="gallery-img" src="../img/category.png" alt="gallery"/>
+        <img className="gallery-img" src="../img/category.png" alt="gallery"/>
+        <img className="gallery-img" src="../img/category.png" alt="gallery"/>
+        <img className="gallery-img" src="../img/category.png" alt="gallery"/>
+        <img className="gallery-img" src="../img/category.png" alt="gallery"/>
+        <img className="gallery-img" src="../img/category.png" alt="gallery"/>
+        <img className="gallery-img" src="../img/category.png" alt="gallery"/>
+        <img className="gallery-img" src="../img/category.png" alt="gallery"/>
+        <img className="gallery-img" src="../img/category.png" alt="gallery"/>
+        <img className="gallery-img" src="../img/category.png" alt="gallery"/>
       </div>
       </div>
       <TabBar />
