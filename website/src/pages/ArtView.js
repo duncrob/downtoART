@@ -7,15 +7,28 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { faComment } from "@fortawesome/free-regular-svg-icons";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 function ArtView() {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    function renderEditBtn() {
+        const { owned } = location.state;
+
+        if (owned) {
+            return (<Link to="/edit" className="edit-post-btn">Edit</Link>)
+        }
+        return
+    }
+
   return (
     <div className='artview-container'>
       <NavBar />
       <div className="artview-content">
         <div className="artview-nav">
-            <FontAwesomeIcon icon={faChevronLeft} size='xl' />
-            <div className="back-title">#Sunset</div>
+            <FontAwesomeIcon icon={faChevronLeft} size='xl' onClick={() => {navigate(-1)}} />
+            {renderEditBtn()}
         </div>
         <div className="main-post">
             <img className="key-img" src="../img/main-post-tree.png" />
@@ -34,7 +47,7 @@ function ArtView() {
                 </div>
             </div>
         </div>
-        <ProcessViewCard imgSrc="../img/og-image.png" title="Original Image" desc="This is my original" />
+        <ProcessViewCard imgSrc="../img/og-image.png" title="Original Image" desc="This is my original image." />
         <ProcessViewCard imgSrc="../img/color-adjustment.png" title="Color Adjustment" desc="This is the photo after I adjusted the colors." />
         <ProcessViewCard imgSrc="../img/exposure-adjustment.png" title="Exposure Adjustment" desc="This is my photo after I adjusted the exposure." />
       </div>

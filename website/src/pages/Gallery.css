@@ -29,14 +29,19 @@
 }
 
 .gallery-img {
-    width: 40%;
-    aspect-ratio: 1/1;
+    width: 40vw;
     object-fit: cover;
-    margin: 15px
+    margin: 15px;
+    height: 40vw;
 }
 
 .gallery-post {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.internal-img {
+    object-fit: cover;
+    width: 100%;
 }
