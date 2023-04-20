@@ -2,6 +2,7 @@ import "./Profile.css";
 import NavBar from "../components/NavBar";
 import TabBar from "../components/TabBar";
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 function Profile() {
   return (
@@ -12,7 +13,9 @@ function Profile() {
         <div className="profile-bio">Just here to express myself through my art, and sometimes my Minecraft worlds.</div>
         <hr />
         <div className="profile-gallery">
-          <img className="image" src="../img/image-1.jpg" alt="Sunset Tree" />
+          <Link to="/artview" state={{ owned: true }} className="image">
+            <img className="profile-inner-img" src="../img/image-1.jpg" alt="Sunset Tree" />
+          </Link>
           <img className="image" src="../img/image-2.jpg" alt="Minecraft" />
           <img className="image" src="../img/image-5.jpg" alt="Space" />
           <img className="image" src="../img/collage1.jpg" alt="Collage cat" />

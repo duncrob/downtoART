@@ -17,3 +17,7 @@
     font-weight: 700;
     margin-bottom: 20px;
 }
+
+.home-content a {
+    width: 100%;
+}

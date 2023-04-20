@@ -42,3 +42,7 @@
     height: auto;
     max-height: 220px;
   }
+
+  .profile-inner-img {
+    width: 100%;
+  }

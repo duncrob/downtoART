@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    justify-content: space-between;
 }
 
 .back-title {
@@ -48,4 +49,10 @@
 
 .interaction-icon {
     margin-right: 20px;
+}
+
+.edit-post-btn {
+    color: #D38C00 !important;
+    font-weight: 600;
+    font-size: 24px;
 }

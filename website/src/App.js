@@ -1,10 +1,11 @@
 import './App.css';
-import { BrowserRouter, Switch, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Upload from "./pages/Upload";
 import ArtView from './pages/ArtView';
 import Gallery from "./pages/Gallery"
+import Edit from './pages/Edit';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/upload' element={<Upload />} />
         <Route path='/artview' element={<ArtView />} />
         <Route path='/gallery' element={<Gallery />} />
+        <Route path='/edit' element={<Edit />} />
       </Routes>
     </BrowserRouter>
   );
