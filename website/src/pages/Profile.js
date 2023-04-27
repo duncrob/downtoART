@@ -23,7 +23,6 @@ function Profile() {
           <img className="image" src="../img/watercolor1.jpeg" alt="Watercolor and oil" />
           <img className="image" src="../img/image-3.jpg" alt="Student Art" />
           <img className="image" src="../img/watercolor2.jpg" alt="Watercolor lemons" />
-
           <img className="image" src="../img/collage2.png" alt="Collage dog" />
           
           
