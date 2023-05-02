@@ -6,39 +6,34 @@ import "./Upload.css";
 import Switch from '@mui/material/Switch';
 
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
 
-
+import { db, auth, storage } from "../firebase";
+import { push, ref, set } from "firebase/database";
+import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage"
+import { useNavigate } from "react-router-dom";
 
 function Upload() {
   const [previewSrc, setPreviewSrc] = useState("../img/Upload-IMG.png");
   const [browseText, setBrowseText] = useState("Browse Files");
   const [uploadStage, setUploadStage] = useState(1);
+  const [currentFile, setCurrentFile] = useState({});
 
-  const processCardHardInfo = [
-    {
-      id: 1,
-      title: "",
-      desc: "",
-      imgSrc: "../img/example-art.jpg"
-    },
-    {
-      id: 2,
-      title: "",
-      desc: "",
-      imgSrc: "../img/example-art.jpg"
-    },
-  ]
+  const [processCardInfo, setProcessCardInfo] = useState([])
 
-  const [processCardInfo, setProcessCardInfo] = useState(processCardHardInfo)
+  const [title, setTitle] = useState("");
+  const [medium, setMedium] = useState("");
+  const [desc, setDesc] = useState("");
+  const [tags, setTags] = useState("");
+
+  const navigate = useNavigate();
 
   function addProcess() {
     processCardInfo.push(
       {
         id: Math.floor(Math.random() * 99999999999),
-        title: "",
+        name: "",
         desc: "",
-        imgSrc: "../img/example-art.jpg"
+        "img-src": "../img/Upload-IMG.png"
       }
     );
 
@@ -53,7 +48,7 @@ function Upload() {
 
   function renderProcessCards() {
     let renderedCards = processCardInfo.map((process) => {
-      return <ProcessEditCard key={process.id} id={process.id} title={process.title} desc={process.desc} imgSrc={process.imgSrc} removeProcess={removeProcess} />
+      return <ProcessEditCard process={process} processCardInfo={processCardInfo} setProcessCardInfo={setProcessCardInfo} key={process.id} id={process.id} removeProcess={removeProcess} />
     });
 
     return (renderedCards)
@@ -62,11 +57,42 @@ function Upload() {
   function showPreview(event) {
     if(event.target.files.length > 0){
       var src = URL.createObjectURL(event.target.files[0]);
+      setCurrentFile(event.target.files[0]);
       setPreviewSrc(src);
       setBrowseText("Choose New Image");
       var preview = document.querySelector(".preview-img");
       preview.style.display = "block";
     }
+  }
+
+  function post(e) {
+    e.preventDefault();
+
+    let imageDBName = Date.now() + "-" + currentFile.name;
+      
+    let currentStorageRef = storageRef(storage, 'images/' + imageDBName);
+    uploadBytes(currentStorageRef, currentFile)
+    .then((snapshot) => getDownloadURL(snapshot.ref))
+    .then((url) => {
+      let tagsArray = tags.split(" ");
+
+      const dbRef = ref(db, 'posts/')
+
+      let key = push(dbRef).key
+
+      set(ref(db, 'posts/' + key), {
+        id: key,
+        desc: desc,
+        "key-img-src": url,
+        medium: medium,
+        process: processCardInfo,
+        tags: tagsArray,
+        timestamp: Date.now(),
+        title: title,
+        uid: auth.currentUser.uid
+      });
+    })
+    .then(() => {navigate("/home")})
   }
 
   function renderPageContent() {
@@ -86,16 +112,15 @@ function Upload() {
       pageContent = (
         <div className="upload-container">
           <img className="preview-img" src={previewSrc} />
-          <form className="upload-form">
+          <form className="upload-form" onSubmit={(e) => {post(e);}}>
             <label className="post-label">Artwork Name</label><br/>
-            <input type="text" className="metadata-input" /><br/>
-            <label className="post-label">Medium</label><br/>
-            <input type="text" className="metadata-input" /><br/>
+            <input type="text" className="metadata-input" required value={title} onChange={(event) => {setTitle(event.target.value)}} /><br/>
+            <label className="post-label" >Medium</label><br/>
+            <input type="text" className="metadata-input" required value={medium} onChange={(event) => {setMedium(event.target.value)}} /><br/>
             <label className="post-label">Description <span className="optional-txt">(optional)</span></label><br/>
-            <input type="text" className="metadata-input" /><br/>
+            <input type="text" className="metadata-input" value={desc} onChange={(event) => {setDesc(event.target.value)}} /><br/>
             <label className="post-label">Tags <span className="optional-txt">(optional)</span></label><br/>
-            <input type="text" className="metadata-input tags-input" /><br/>
-            <p className="desc-txt tags-desc">Adding tags allows your artwork to be categorized in our system and be visible in our highlights.</p>
+            <input type="text" className="metadata-input tags-input" value={tags} onChange={(event) => {setTags(event.target.value)}} /><br/>
             <div className="title-and-switch">
                 <p className="post-label">Show Process</p>
                 <Switch onChange={() => {
@@ -110,7 +135,7 @@ function Upload() {
             </div>
             <div className="control-btns">
               <div className="upload-back-btn" onClick={() => {setUploadStage(1)}}>Back</div>
-              <Link to="/profile" className="post-btn">Post</Link>
+              <input className="post-btn" type="submit" value="Post" />
             </div>
           </form>
         </div>

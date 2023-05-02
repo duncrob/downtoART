@@ -7,11 +7,23 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { faComment } from "@fortawesome/free-regular-svg-icons";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation, useParams } from "react-router-dom";
+import { Context } from "../App";
+import { useContext, useEffect, useState } from "react";
+import { ref, onValue} from "firebase/database";
+import { db } from "../firebase";
 
 function ArtView() {
     const navigate = useNavigate();
     const location = useLocation();
+    const [posts, setPosts] = useContext(Context);
+
+    let { id } = useParams();
+
+    var currentPost = posts.find(post => {
+      return post.id === id
+    });
+    const [user, setUser] = useState("");
 
     function renderEditBtn() {
         const { owned } = location.state;
@@ -22,6 +34,26 @@ function ArtView() {
         return
     }
 
+    function renderProcesses() {
+      return (currentPost.process.map((edit) => {
+        return <ProcessViewCard imgSrc={edit["img-src"]} title={edit.name} desc={edit.desc} />
+      }))
+    }
+
+    useEffect(() => {
+      const userRef = ref(db, `users/` + currentPost.uid);
+
+      const offFunction = onValue(userRef, (snapshot) => {
+        const currentUser = snapshot.val();
+        setUser(currentUser.name);
+      })
+
+      function cleanup() {
+        offFunction();
+      }
+      return cleanup;
+    }, []);
+
   return (
     <div className='artview-container'>
       <NavBar />
@@ -31,15 +63,15 @@ function ArtView() {
             {renderEditBtn()}
         </div>
         <div className="main-post">
-            <img className="key-img" src="../img/main-post-tree.png" />
+            <img className="key-img" src={currentPost["key-img-src"]} />
             <div className="post-metadata">
-                <span className="post-title">Sunset Tree</span>
+                <span className="post-title">{currentPost.title}</span>
                 <br />
-                <span className="medium">Photograph</span>
+                <span className="medium">{currentPost.medium}</span>
                 <br /><br />
-                <span className="creator">Steven Lam</span>
+                <span className="creator">{user}</span>
                 <br /><br />
-                <span className="desc">The sun shines directly through the tree during our roadtrip down to California creating a rather aesthetic sunset scene.</span>
+                <span className="desc">{currentPost.desc}</span>
                 <div className="interaction-icons">
                     <FontAwesomeIcon icon={faHeart} className="interaction-icon" size='2xl' />
                     <FontAwesomeIcon icon={faBookmark} className="interaction-icon" size='2xl' />
@@ -47,9 +79,7 @@ function ArtView() {
                 </div>
             </div>
         </div>
-        <ProcessViewCard imgSrc="../img/og-image.png" title="Original Image" desc="This is my original image." />
-        <ProcessViewCard imgSrc="../img/color-adjustment.png" title="Color Adjustment" desc="This is the photo after I adjusted the colors." />
-        <ProcessViewCard imgSrc="../img/exposure-adjustment.png" title="Exposure Adjustment" desc="This is my photo after I adjusted the exposure." />
+        {renderProcesses()}
       </div>
       <TabBar />
     </div>
