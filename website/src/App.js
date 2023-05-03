@@ -6,6 +6,7 @@ import Upload from "./pages/Upload";
 import ArtView from './pages/ArtView';
 import Gallery from "./pages/Gallery"
 import Edit from './pages/Edit';
+import About from './pages/About';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/artview' element={<ArtView />} />
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/edit' element={<Edit />} />
+        <Route path='/about' element={<About />} />
       </Routes>
     </BrowserRouter>
   );
