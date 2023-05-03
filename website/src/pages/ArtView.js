@@ -47,6 +47,7 @@ function ArtView() {
                 </div>
             </div>
         </div>
+        <div className="process-header">Process</div>
         <ProcessViewCard imgSrc="../img/og-image.png" title="Original Image" desc="This is my original image." />
         <ProcessViewCard imgSrc="../img/color-adjustment.png" title="Color Adjustment" desc="This is the photo after I adjusted the colors." />
         <ProcessViewCard imgSrc="../img/exposure-adjustment.png" title="Exposure Adjustment" desc="This is my photo after I adjusted the exposure." />

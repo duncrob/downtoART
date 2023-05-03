@@ -28,21 +28,21 @@
   }
   
   .profile-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
     align-items: center;
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     margin-bottom: 120px;
   }
 
   .image {
-    flex-basis: 33%;
-    width: 100%;
-    height: auto;
-    max-height: 220px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
   }
 
   .profile-inner-img {
-    width: 100%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
   }
