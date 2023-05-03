@@ -12,11 +12,18 @@
     height: 100%;
 }
 
-.disp-img {
-    max-width: 96px;
+.process-img-upload-btn {
+    width: 96px;
     height: 96px;
-    margin-top: 7px;
-    margin-right: 8px;
+    min-width: 96px;
+    min-height: 96px;
+    margin: 8px;
+    object-fit: cover;
+}
+
+.disp-img {
+    width: 100% !important;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -49,4 +56,8 @@
 
 .line-and-inputs {
     display: flex;
+}
+
+.process-img-input {
+    display: none;
 }

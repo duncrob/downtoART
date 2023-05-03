@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function TabBar() {
     return (
         <div className='tab-bar'>
-            <Link to="/">
+            <Link to="/home">
                 <div className='home-button'>
                     <FontAwesomeIcon icon={faHouse} size='xl' />
                 </div>

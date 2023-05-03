@@ -59,6 +59,10 @@
     margin-top: 2px;
 }
 
+.metadata-input:focus {
+    outline: 2px solid #FFA800;
+}
+
 .upload-form {
     width: 75%;
 }
@@ -129,8 +133,23 @@
 
 .post-btn {
     color: #b3b3b3 !important;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.post-btn, .post-btn:focus {
+    outline: 0 !important;
+    background: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+}
+  
+.post-btn:active {
+    outline: 0 !important;
+    background: transparent;
+    border: 1px solid grey;
 }
 
 .hidden {
     display: none;
-  }
+}
