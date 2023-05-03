@@ -1,0 +1,148 @@
+{
+    "posts": [
+      {
+        "id": "1",
+        "uid": "FCurL00O2dMbIqAi3EMMKWZJRQz1",
+        "timestamp": 1320224640000,
+        "desc": "The sun shines directly through the tree during our roadtrip down to California creating a rather aesthetic sunset scene.",
+        "key-img-src": "../img/exposure-adjustment.png",
+        "medium": "Photograph",
+        "title": "Sunset Tree",
+        "tags": [
+            "Sunset",
+            "Abstract",
+            "Pretty"
+        ],
+        "process": [
+            {
+                "name": "Original Image",
+                "desc": "This image was taken at Sunset Cliffs Natural Park in San Diego",
+                "img-src": "../img/og-image.png"
+            },
+            {
+                "name": "Color Adjustment",
+                "desc": "I adjusted the tones in the image to bring out more violet tones",
+                "img-src": "../img/color-adjustment.png"
+            },
+            {
+                "name": "Exposure Adjustment",
+                "desc": "I changed the brightness to bring out the contrast and patterns in the sky",
+                "img-src": "../img/exposure-adjustment.png"
+            }
+        ]
+      },
+      {
+        "id": "2",
+        "uid": "FCurL00O2dMbIqAi3EMMKWZJRQz2",
+        "timestamp": 1320224640002,
+        "desc": "My brother attempting to boulder in Arizona",
+        "key-img-src": "../img/eric4.JPG",
+        "medium": "Ink",
+        "title": "Eric Climbs",
+        "tags": [
+            "Ink",
+            "Mountain",
+            "Nature"
+        ],
+        "process": [
+            {
+                "name": "Clothing",
+                "desc": "I started with the clothing and helmet because it's hard to see mistakes",
+                "img-src": "../img/eric1.JPG"
+            },
+            {
+                "name": "Face",
+                "desc": "Added his facial features and glasses",
+                "img-src": "../img/eric2.JPG"
+            },
+            {
+                "name": "Rock",
+                "desc": "Used messy crosshatching to give the rocks a more abstract feeling",
+                "img-src": "../img/eric4.JPG"
+            }
+        ]
+      },
+      {
+        "id": "3",
+        "uid": "FCurL00O2dMbIqAi3EMMKWZJRQz3",
+        "timestamp": 1320224640003,
+        "desc": "A good friend in a grassy field",
+        "key-img-src": "../img/julien2.JPG",
+        "medium": "Watercolor",
+        "title": "A friend in a field",
+        "tags": [
+            "Watercolor",
+            "Nature",
+            "Green"
+        ],
+        "process": [
+            {
+                "name": "Color swatching",
+                "desc": "Testing colors to find the right tones",
+                "img-src": "../img/julien1.JPG"
+            },
+            {
+                "name": "Final",
+                "desc": "The finished project",
+                "img-src": "../img/julien2.JPG"
+            }
+        ]
+      },
+      {
+        "id": "4",
+        "uid": "FCurL00O2dMbIqAi3EMMKWZJRQz4",
+        "timestamp": 1320224640004,
+        "desc": "A woman who slays so hard",
+        "key-img-src": "../img/tiana2.JPG",
+        "medium": "Watercolor Painting",
+        "title": "My Friend Tiana",
+        "tags": [
+            "Bold",
+            "Watercolor",
+            "Red"
+        ],
+        "process": [
+            {
+                "name": "Testing",
+                "desc": "Planning out which colors and tones I want to use",
+                "img-src": "../img/tiana1.JPG"
+            },
+            {
+                "name": "Tiana",
+                "desc": "The finished art piece of my beautiful friend",
+                "img-src": "../img/tiana2.JPG"
+            }
+        ]
+      }
+    ],
+    "users": {
+      "FCurL00O2dMbIqAi3EMMKWZJRQz1": {
+        "name": "Daisy Krey"
+      },
+      "FCurL00O2dMbIqAi3EMMKWZJRQz2": {
+        "name": "Robert Slay"
+      },
+      "FCurL00O2dMbIqAi3EMMKWZJRQz3": {
+        "name": "James Hu"
+      },
+      "FCurL00O2dMbIqAi3EMMKWZJRQz4": {
+        "name": "Gabrielle Garcia"
+      }
+    },
+    "tags": [
+        "Sunset",
+        "Architecture",
+        "Dark",
+        "Abstract",
+        "Pretty",
+        "Ink",
+        "Mountain",
+        "Nature",
+        "Watercolor",
+        "Green",
+        "Bold",
+        "Red"
+    ]
+
+  }
+  
