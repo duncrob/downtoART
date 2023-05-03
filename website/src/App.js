@@ -8,6 +8,7 @@ import ArtView from './pages/ArtView';
 import Gallery from "./pages/Gallery"
 import Edit from './pages/Edit';
 import SignIn from './pages/SignIn';
+import About from './pages/About';
 
 export const Context = React.createContext();
 
@@ -26,6 +27,7 @@ function App() {
           <Route path='/artview/:id' element={<ArtView />} />
           <Route path='/gallery/:tag' element={<Gallery />} />
           <Route path='/edit' element={<Edit />} />
+          <Route path='/about' element={<About />} />
         </Routes>
       </BrowserRouter>
     </Context.Provider>
