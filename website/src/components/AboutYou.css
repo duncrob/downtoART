@@ -1,0 +1,44 @@
+.about-you {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.edit-button {
+    height: 100%;
+    text-decoration-line: underline;
+    position: absolute;
+    right: 10%;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.process-img {
+    border-radius: 400px;
+    width: 20%;
+    height: 20%;
+    min-width: 120px;
+    min-height: 120px;
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.text {
+    
+}
+.name {
+    font-weight: bold;
+    font-size: 18pt;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.bio {
+    margin-left: 20px;
+    font-size: 13pt;
+}

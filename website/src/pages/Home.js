@@ -6,6 +6,7 @@ import { ref, onValue} from "firebase/database";
 import { db } from "../firebase";
 import { useState, useEffect, useContext } from "react";
 import { Context } from "../App";
+import AboutYou from "../components/AboutYou";
 
 function Home() {
   const [tags, setTags] = useState([]);
@@ -69,6 +70,7 @@ function Home() {
     <div className='home-container'>
       <NavBar />
       <div className="home-content">
+        <AboutYou />
         <div className="home-header">Your Collection</div>
         <CategoryCard imgSrc="../img/following.png" title="Following" numPieces={2} />
         {renderCards()}
