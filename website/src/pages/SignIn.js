@@ -5,6 +5,7 @@ import { ref, set } from 'firebase/database';
 import { db } from '../firebase';
 import { auth } from '../firebase';
 import { Navigate } from 'react-router-dom';
+import "./SignIn.css";
 
 export default function SignIn(props) {
     const [signedIn, setSignedIn] = useState(false);
@@ -40,8 +41,7 @@ export default function SignIn(props) {
 
   return (
     <div className="">
-      <h2 className="">Please sign in to view content</h2>
-      <div className="">
+      <div className="signin-container">
         <StyledFirebaseAuth uiConfig={configObj} firebaseAuth={auth} />
       </div>
     </div>

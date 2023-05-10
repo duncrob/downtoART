@@ -23,7 +23,6 @@ function Upload() {
   const [title, setTitle] = useState("");
   const [medium, setMedium] = useState("");
   const [desc, setDesc] = useState("");
-  const [tags, setTags] = useState("");
 
   const navigate = useNavigate();
 
@@ -74,8 +73,6 @@ function Upload() {
     uploadBytes(currentStorageRef, currentFile)
     .then((snapshot) => getDownloadURL(snapshot.ref))
     .then((url) => {
-      let tagsArray = tags.split(" ");
-
       const dbRef = ref(db, 'posts/')
 
       let key = push(dbRef).key
@@ -86,7 +83,6 @@ function Upload() {
         "key-img-src": url,
         medium: medium,
         process: processCardInfo,
-        tags: tagsArray,
         timestamp: Date.now(),
         title: title,
         uid: auth.currentUser.uid
@@ -113,23 +109,35 @@ function Upload() {
         <div className="upload-container">
           <img className="preview-img" src={previewSrc} />
           <form className="upload-form" onSubmit={(e) => {post(e);}}>
-            <label className="post-label">Artwork Name</label><br/>
+            <label className="post-label">Art Title <span className="red">*</span></label><br/>
             <input type="text" className="metadata-input" required value={title} onChange={(event) => {setTitle(event.target.value)}} /><br/>
-            <label className="post-label" >Medium</label><br/>
-            <input type="text" className="metadata-input" required value={medium} onChange={(event) => {setMedium(event.target.value)}} /><br/>
-            <label className="post-label">Description <span className="optional-txt">(optional)</span></label><br/>
-            <input type="text" className="metadata-input" value={desc} onChange={(event) => {setDesc(event.target.value)}} /><br/>
-            <label className="post-label">Tags <span className="optional-txt">(optional)</span></label><br/>
-            <input type="text" className="metadata-input tags-input" value={tags} onChange={(event) => {setTags(event.target.value)}} /><br/>
+            <label className="post-label" >Medium of Art <span className="red">*</span></label><br/>
+            {/* <input type="text" className="metadata-input" required value={medium} onChange={(event) => {setMedium(event.target.value)}} /><br/> */}
+            <select className="metadata-input" onChange={(event) => {setMedium(event.target.value)}}>
+              <option selected disabled></option>
+              <option value="Watercolor">Watercolor</option>
+              <option value="Photography">Photography</option>
+              <option value="Acrylic">Acrylic</option>
+              <option value="Sketches">Sketches</option>
+              <option value="Oil Painting">Oil Painting</option>
+              <option value="Digital Art">Digital Art</option>
+              <option value="Fabric">Fabric</option>
+              <option value="Clay">Clay</option>
+              <option value="Pottery">Pottery</option>
+              <option value="Painting">Painting</option>
+              <option value="Sculpture">Sculpture</option>
+            </select><br/>
+            <label className="post-label">Description</label><br/>
+            <textarea className="metadata-input desc-input" value={desc} onChange={(event) => {setDesc(event.target.value)}} /><br/>
             <div className="title-and-switch">
-                <p className="post-label">Show Process</p>
+                <p className="post-label">Show Your Work Process</p>
                 <Switch onChange={() => {
                   document.querySelector(".process-container").classList.toggle("hidden");
                 }} />
             </div>
+            <p className="desc-txt-p1">Have pictures of your work process? Showing them can greatly help other artists understand how your artwork is created and refined.</p>
+              <p className="desc-txt">You can also post a work-in-progress piece right now and update your artwork as you continue your progress. The cover photo will automatically update to your latest upload for this post.</p>
             <div className="process-container hidden">
-              <p className="desc-txt-p1">Showing your work process can greatly help other artists understand how your artwork is created and refined.</p>
-              <p className="desc-txt">You can post a work-in-progress and update your artwork as you continue your progress. The cover photo will automatically update to your latest upload for this post.</p>
               {renderProcessCards()}
               <div className="add-process-btn" onClick={addProcess}>Add Process</div>
             </div>

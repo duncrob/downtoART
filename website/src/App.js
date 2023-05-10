@@ -25,7 +25,7 @@ function App() {
           <Route path='/profile' element={<Profile />} />
           <Route path='/upload' element={<Upload />} />
           <Route path='/artview/:id' element={<ArtView />} />
-          <Route path='/gallery/:tag' element={<Gallery />} />
+          <Route path='/gallery/:medium' element={<Gallery />} />
           <Route path='/edit' element={<Edit />} />
           <Route path='/about' element={<About />} />
         </Routes>
