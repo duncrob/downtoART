@@ -1,0 +1,22 @@
+.mediums-container {
+    width: 100%;
+}
+
+.medium-btn {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0 16px 0;
+}
+
+.bottom-gray-border {
+    border-bottom: 1px solid #C6C6C8;
+}
+
+.medium-btn-count {
+    color: #C6C6C8;
+    font-weight: 500;
+}
+
+.medium-btn-txt, .medium-btn-count {
+    font-size: 16px;
+}
