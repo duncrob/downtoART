@@ -12,11 +12,13 @@ function Gallery() {
   const navigate = useNavigate();
   const [posts, setPosts] = useContext(Context);
 
-  let { tag } = useParams();
+  let { medium } = useParams();
+
+  console.log(medium);
 
   function renderPosts() {
     let relevantPosts = posts.filter((post) => {
-      return post.tags.includes(tag);
+      return post.medium === medium;
     });
     
     let renderedPosts = relevantPosts.map((post) => {
@@ -39,7 +41,7 @@ function Gallery() {
           <div className="back-btn">
             <FontAwesomeIcon onClick={() => {navigate(-1)}} icon={faChevronLeft} size='xl' />
           </div>
-        <div className="gallery-header">#{tag}</div>
+        <div className="gallery-header">#{medium}</div>
       </div>
       <div className="gallery-post">
         {renderPosts()}

@@ -7,7 +7,7 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import { faComment } from "@fortawesome/free-regular-svg-icons";
-import { Link, useNavigate, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { Context } from "../App";
 import { useContext, useEffect, useState } from "react";
 import { ref, onValue} from "firebase/database";
@@ -26,17 +26,16 @@ function ArtView() {
     const [user, setUser] = useState("");
 
     function renderEditBtn() {
-        const { owned } = location.state;
 
-        if (owned) {
-            return (<Link to="/edit" className="edit-post-btn">Edit</Link>)
-        }
-        return
+        // if (owned) {
+        //     return (<Link to="/edit" className="edit-post-btn">Edit</Link>)
+        // }
+        // return
     }
 
     function renderProcesses() {
-      return (currentPost.process.map((edit) => {
-        return <ProcessViewCard imgSrc={edit["img-src"]} title={edit.name} desc={edit.desc} />
+      return (currentPost.process.map((edit, i) => {
+        return <ProcessViewCard imgSrc={edit["img-src"]} title={edit.name} desc={edit.desc} index={i} />
       }))
     }
 
@@ -63,22 +62,13 @@ function ArtView() {
             {renderEditBtn()}
         </div>
         <div className="main-post">
+            <div className="post-title">{currentPost.title}</div>
+            <div className="creator">{user}</div>
             <img className="key-img" src={currentPost["key-img-src"]} />
-            <div className="post-metadata">
-                <span className="post-title">{currentPost.title}</span>
-                <br />
-                <span className="medium">{currentPost.medium}</span>
-                <br /><br />
-                <span className="creator">{user}</span>
-                <br /><br />
-                <span className="desc">{currentPost.desc}</span>
-                <div className="interaction-icons">
-                    <FontAwesomeIcon icon={faHeart} className="interaction-icon" size='2xl' />
-                    <FontAwesomeIcon icon={faBookmark} className="interaction-icon" size='2xl' />
-                    <FontAwesomeIcon icon={faComment} className="interaction-icon" size='2xl' />
-                </div>
-            </div>
+            <div className="desc">{currentPost.desc}</div>
+            {/* <span className="medium">{currentPost.medium}</span> */}
         </div>
+        <div className="process-txt">PROCESS</div>
         {renderProcesses()}
       </div>
       <TabBar />
