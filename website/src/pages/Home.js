@@ -1,6 +1,6 @@
 import "./Home.css";
 import NavBar from "../components/NavBar";
-import CategoryCard from "../components/CategoryCard";
+import DiscoverCard from "../components/DiscoverCard";
 import TabBar from "../components/TabBar";
 import { ref, onValue} from "firebase/database";
 import { db, auth } from "../firebase";
@@ -90,6 +90,7 @@ function Home() {
           <div className="home-to-gallery-btn" onClick={() => navigate("/profile")}>View your entire gallery</div>
         </div>
         <div className="discover-header">Inspiration</div>
+        <DiscoverCard />
         {/* <CategoryCard imgSrc="../img/following.png" title="Following" numPieces={2} />
         {renderCards()} */}
         <div className="home-mediums-header">All Medium Types</div>
