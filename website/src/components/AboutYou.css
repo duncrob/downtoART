@@ -1,14 +1,15 @@
 .about-you {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width:100%;
+    max-width: 1200px;
 }
 
 .edit-button {
     height: 100%;
     text-decoration-line: underline;
     position: absolute;
-    right: 10%;
+    right: 0%;
 }
 
 .profile {
@@ -28,9 +29,6 @@
     object-fit: cover;
 }
 
-.text {
-    
-}
 .name {
     font-weight: bold;
     font-size: 18pt;

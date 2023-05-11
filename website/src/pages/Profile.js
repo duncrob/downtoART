@@ -1,6 +1,7 @@
 import "./Profile.css";
 import NavBar from "../components/NavBar";
 import TabBar from "../components/TabBar";
+import AboutYou from "../components/AboutYou";
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { auth } from '../firebase';
@@ -29,12 +30,13 @@ function Profile() {
     <div className='profile-container'>
       <NavBar />
       <div className="profile-content">
-        <div className="profile-header">{auth.currentUser.displayName}</div>
-        <div className="profile-bio">Just here to express myself through my art, and sometimes my Minecraft worlds.</div>
+        <div className="profile-header">MY GALLERY</div>
         <hr />
         <div className="profile-gallery">
           {renderArt()}
         </div>
+        <div className="profile-header">ABOUT ME</div>
+        <AboutYou />
       </div>
       <TabBar />
     </div>
