@@ -80,7 +80,8 @@ function Home() {
     <div className='home-container'>
       <NavBar />
       <div className="home-content">
-        <div className="my-gallery-header">MY GALLERY</div>
+        <div className="home-header">HOME</div>
+        <div className="my-gallery-header">My Gallery</div>
         <div className="my-gallery-home-container">
         {renderMyGallery()}
         </div>
@@ -88,10 +89,10 @@ function Home() {
           <div className="home-upload-btn" onClick={() => navigate("/upload")}>Upload Art</div>
           <div className="home-to-gallery-btn" onClick={() => navigate("/profile")}>View your entire gallery</div>
         </div>
-        <div className="discover-header">DISCOVER</div>
+        <div className="discover-header">Inspiration</div>
         {/* <CategoryCard imgSrc="../img/following.png" title="Following" numPieces={2} />
         {renderCards()} */}
-        <div className="home-mediums-header">ALL MEDIUM TYPES</div>
+        <div className="home-mediums-header">All Medium Types</div>
         <MediumTypesList />
       </div>
       <TabBar />
