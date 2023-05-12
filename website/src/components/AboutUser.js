@@ -5,7 +5,7 @@ function AboutUser({ user }) {
         <div>
             <div className="about-content-container">
                 <div className="about-pic-container">
-                    <img className="about-profile-pic" src="/img/julien1.jpg" />
+                    <img className="about-profile-pic" src="https://firebasestorage.googleapis.com/v0/b/capstone-cb532.appspot.com/o/images%2Fgeneric-user.jpg?alt=media&token=d8c55b8e-4cc3-41cb-aa25-a32f645a0f67" />
                 </div>
                 <div className="name-desc-container">
                     <div className="about-name">{user.name}</div>
