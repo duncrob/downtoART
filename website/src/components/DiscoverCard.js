@@ -1,25 +1,34 @@
+import { useState, useEffect } from "react";
 import "./DiscoverCard.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { db } from "../firebase";
+import { onValue, ref } from "firebase/database";
 
-function DiscoverCard({ title, imgSrc}) {
-    // let linkPath = "/gallery/" + title;
-    // return (
-    //     <Link to={linkPath}>
-    //         <div className='card-container'>
-    //             <img className="category-img" src={imgSrc} />
-    //             <div className="category-text">
-    //                 <div className="category-name">{title}</div>
-    //             </div>
-    //         </div>
-    //     </Link>
-    // );
+function DiscoverCard({ post }) {
+    const [user, setUser] = useState();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const userRef = ref(db, `users/` + post.uid);
+
+        const offFunction = onValue(userRef, (snapshot) => {
+            const currentUser = snapshot.val();
+            setUser(currentUser.name);
+        })
+
+        function cleanup() {
+            offFunction();
+        }
+        return cleanup;
+    }, [post]);
+    
     return (    
         <div className="discover-content">
-            <img className="discover-img" src="../img/image-2.jpg"/>
-            <div className="discover-art-title">The Droplets of Color</div>
-            <div className="discover-creator">Vivian Hung</div>
-            <div className="discover-desc">Over the course of quarantine, I have been experimenting with many colors and abstract shapes with my new kit. I spent the last 3 days creating this piece.</div>
-            <div className="discover-to-artview-btn">View All Watercolor</div>
+            <img className="discover-img" src={post["key-img-src"]}/>
+            <div className="discover-art-title">{post.title}</div>
+            <div className="discover-creator">{user}</div>
+            <div className="discover-desc">{post.desc}</div>
+            <div className="discover-to-artview-btn" onClick={() => navigate("/gallery/" + post.medium)}>View All {post.medium}</div>
         </div>
     );
 }

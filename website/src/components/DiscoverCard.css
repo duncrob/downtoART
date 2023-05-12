@@ -3,20 +3,21 @@
     flex-direction: column;
     align-items: center;
     /* might need to adjust */
-    margin-bottom: 120px;
+    margin-bottom: 50px;
 }
 
 .discover-art-title {
-    font-size: 24px;
-    line-height: 27px;
+    margin-top: 13px;
+    font-size: 20px;
+    line-height: 30px;
     margin-bottom: 20px;
-
 }
 
 .discover-creator {
     font-size: 13px;
     line-height: 19.5px;
-    margin-bottom: 21px;
+    margin-bottom: 20px;
+    line-height: 18px;
 }
 
 .discover-desc {
@@ -28,15 +29,11 @@
 }
 
 .discover-img {
-    width: 85%;
-    max-height: 200px;
-    padding: 25px 20px 6px 20px;
-    margin-bottom: 13px;
+    width: 100%;
 }
 
 .discover-to-artview-btn {
     font-size: 12px;
     font-weight: 300;
     text-decoration: underline;
-    margin-top: 18px;
 }
