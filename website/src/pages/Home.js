@@ -68,7 +68,7 @@ function Home() {
 
   return (
     <div className='home-container'>
-      <NavBar />
+      <NavBar currentPage={"home"} />
       <div className="home-content">
         <div className="home-header">HOME</div>
         <div className="my-gallery-header">My Gallery</div>
@@ -86,7 +86,6 @@ function Home() {
         <div className="home-mediums-header">All Medium Types</div>
         <MediumTypesList />
       </div>
-      <TabBar />
     </div>
   )
 }

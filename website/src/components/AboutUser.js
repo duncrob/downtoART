@@ -1,6 +1,6 @@
 import "./AboutUser.css";
 
-function AboutUser({ currentUser }) {
+function AboutUser({ user }) {
     return (
         <div>
             <div className="about-content-container">
@@ -8,7 +8,7 @@ function AboutUser({ currentUser }) {
                     <img className="about-profile-pic" src="/img/julien1.jpg" />
                 </div>
                 <div className="name-desc-container">
-                    <div className="about-name">{currentUser.displayName}</div>
+                    <div className="about-name">{user.name}</div>
                     <div className="about-desc">UW’23 Here to leave my mark in the art community at UW :) enjoy!</div>
                 </div>
             </div>

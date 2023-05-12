@@ -12,6 +12,7 @@ import { Context } from "../App";
 import { useContext, useEffect, useState } from "react";
 import { ref, onValue} from "firebase/database";
 import { db } from "../firebase";
+import AboutUser from "../components/AboutUser";
 
 function ArtView() {
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ function ArtView() {
     var currentPost = posts.find(post => {
       return post.id === id
     });
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState({});
 
     function renderEditBtn() {
 
@@ -34,9 +35,18 @@ function ArtView() {
     }
 
     function renderProcesses() {
-      return (currentPost.process.map((edit, i) => {
-        return <ProcessViewCard imgSrc={edit["img-src"]} title={edit.name} desc={edit.desc} index={i} />
-      }))
+      if (currentPost.process !== undefined) {
+        let processCards = (currentPost.process.map((edit, i) => {
+          return <ProcessViewCard imgSrc={edit["img-src"]} title={edit.name} desc={edit.desc} index={i} />
+        }))
+
+        return (
+          <div>
+            <div className="process-txt">PROCESS</div>
+            {processCards}
+          </div>
+        )
+      }
     }
 
     useEffect(() => {
@@ -44,7 +54,7 @@ function ArtView() {
 
       const offFunction = onValue(userRef, (snapshot) => {
         const currentUser = snapshot.val();
-        setUser(currentUser.name);
+        setUser(currentUser);
       })
 
       function cleanup() {
@@ -63,15 +73,15 @@ function ArtView() {
         </div>
         <div className="main-post">
             <div className="post-title">{currentPost.title}</div>
-            <div className="creator">{user}</div>
+            <div className="creator">{user.name}</div>
             <img className="key-img" src={currentPost["key-img-src"]} />
             <div className="desc">{currentPost.desc}</div>
             {/* <span className="medium">{currentPost.medium}</span> */}
         </div>
-        <div className="process-txt">PROCESS</div>
         {renderProcesses()}
+        <div className="about-artist-header">ABOUT THE ARTIST</div>
+        <AboutUser user={user} />
       </div>
-      <TabBar />
     </div>
   )
 }

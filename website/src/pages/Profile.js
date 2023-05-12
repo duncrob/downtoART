@@ -1,16 +1,32 @@
 import "./Profile.css";
 import NavBar from "../components/NavBar";
 import TabBar from "../components/TabBar";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
 import { Context } from "../App";
 import { useContext } from "react";
 import AboutUser from "../components/AboutUser";
+import { onValue, ref } from "firebase/database";
 
 function Profile() {
   let navigate = useNavigate();
   const [posts, setPosts] = useContext(Context);
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const userRef = ref(db, `users/` + auth.currentUser.uid);
+
+    const offFunction = onValue(userRef, (snapshot) => {
+      const currentUser = snapshot.val();
+      setUser(currentUser);
+    })
+
+    function cleanup() {
+      offFunction();
+    }
+    return cleanup;
+  }, []);
 
   function renderArt() {
     let ownedPosts = posts.filter((post) => {
@@ -28,16 +44,15 @@ function Profile() {
 
   return (
     <div className='profile-container'>
-      <NavBar />
+      <NavBar currentPage={"profile"} />
       <div className="profile-content">
         <div className="profile-header">MY GALLERY</div>
         <div className="profile-gallery">
           {renderArt()}
         </div>
         <div className="profile-upload-btn" onClick={() => navigate("/upload")}>Upload Art</div>
-        <AboutUser currentUser={auth.currentUser} />
+        <AboutUser user={user} />
       </div>
-      <TabBar />
     </div>
   )
 }

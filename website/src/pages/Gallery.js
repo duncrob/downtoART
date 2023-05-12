@@ -41,13 +41,13 @@ function Gallery() {
           <div className="back-btn">
             <FontAwesomeIcon onClick={() => {navigate(-1)}} icon={faChevronLeft} size='xl' />
           </div>
-        <div className="gallery-header">#{medium}</div>
+        <div className="gallery-header">{medium.toUpperCase()}</div>
       </div>
+      <hr className="gallery-line" />
       <div className="gallery-post">
         {renderPosts()}
       </div>
       </div>
-      <TabBar />
     </div>
   )
 }

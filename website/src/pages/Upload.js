@@ -113,10 +113,12 @@ function Upload() {
             <label className="post-label">Art Title <span className="red">*</span></label><br/>
             <input type="text" className="metadata-input" required value={title} onChange={(event) => {setTitle(event.target.value)}} /><br/>
             <label className="post-label" >Medium of Art <span className="red">*</span></label><br/>
-            {/* <input type="text" className="metadata-input" required value={medium} onChange={(event) => {setMedium(event.target.value)}} /><br/> */}
             <select className="metadata-input" onChange={(event) => {setMedium(event.target.value)}}>
-              <option selected disabled></option>
+              {/* <option selected disabled></option> */}
               {mediumTypes.map((type) => {
+                if (type === "Other") {
+                  return <option selected value={type}>{type}</option>
+                }
                 return <option value={type}>{type}</option>
               })}
             </select><br/>
@@ -147,7 +149,6 @@ function Upload() {
       <div>
         <NavBar />
         {pageContent}
-        <TabBar />
       </div>
     )
   }
