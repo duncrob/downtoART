@@ -4,17 +4,19 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const mediumTypes = [
-    "Watercolor",
-    "Photography",
     "Acrylic",
-    "Sketches",
-    "Oil Painting",
+    "Charcoal",
+    "Clay",
     "Digital Art",
     "Fabric",
-    "Clay",
-    "Pottery",
+    "Oil Painting",
     "Painting",
-    "Sculpture"
+    "Photography",
+    "Pottery",
+    "Sculpture",
+    "Sketch",
+    "Watercolor",
+    "Other"
 ]
 
 function MediumTypesList() {
@@ -49,4 +51,5 @@ function MediumTypesList() {
     );
 }
 
+export { mediumTypes };
 export default MediumTypesList;

@@ -11,19 +11,14 @@ import MediumTypesList from "../components/MediumTypesList";
 
 function Home() {
   const [posts, setPosts] = useContext(Context);
+  const [users, setUsers] = useState([]);
 
   console.log("THESE ARE THE POSTS", posts)
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    //const tagsRef = ref(db, `tags/`);
     const postsRef = ref(db, `posts/`);
-
-    // const tagsOffFunction = onValue(tagsRef, (snapshot) => {
-    //   const currentTags = snapshot.val();
-    //   setTags(currentTags);
-    // })
 
     const postsOffFunction = onValue(postsRef, (snapshot) => {
       let currentPosts = snapshot.val();
@@ -32,36 +27,31 @@ function Home() {
     })
 
     function cleanup() {
-      //tagsOffFunction();
       postsOffFunction();
     }
     return cleanup;
   }, [])
   
-  // function renderCards() {
-  //   let renderedCatCards = tags.map((tag, i) => {
-  //     let filteredPosts = posts.filter((post) => {
-  //       return post.tags.includes(tag);
-  //     });
+  function renderDiscoverCards() {
+    let postsCopy = [...posts];
+    let newestFirst = postsCopy.reverse();
 
-  //     let currentCardSrc;
-  //     if (filteredPosts.length) {
-  //       currentCardSrc = filteredPosts[filteredPosts.length - 1]["key-img-src"];
-  //     } else {
-  //       currentCardSrc = "../img/example-art.jpg"
-  //     }     
-  //     return <CategoryCard key={i} imgSrc={currentCardSrc} title={tag} numPieces={filteredPosts.length} />
-  //   })
+    if (newestFirst.length > 3) {
+      newestFirst = newestFirst.slice(0, 3);
+    }
 
-  //   return (renderedCatCards)
-  // }
+    return newestFirst.map((post) => {
+      return <DiscoverCard post={post} />
+    })
+  }
 
   function renderMyGallery() {
-    let myPosts = posts.filter((post) => {
+    let postsCopy = [...posts];
+    let myPosts = postsCopy.filter((post) => {
       return post.uid === auth.currentUser.uid;
     });
 
-    let newestFirst = myPosts.reverse();
+    let newestFirst = [...myPosts].reverse();
 
     if (newestFirst.length > 4) {
       newestFirst = newestFirst.slice(0, 4);
@@ -90,7 +80,7 @@ function Home() {
           <div className="home-to-gallery-btn" onClick={() => navigate("/profile")}>View your entire gallery</div>
         </div>
         <div className="discover-header">Inspiration</div>
-        <DiscoverCard />
+        {renderDiscoverCards()}
         {/* <CategoryCard imgSrc="../img/following.png" title="Following" numPieces={2} />
         {renderCards()} */}
         <div className="home-mediums-header">All Medium Types</div>

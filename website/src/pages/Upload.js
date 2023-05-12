@@ -11,6 +11,7 @@ import { db, auth, storage } from "../firebase";
 import { push, ref, set } from "firebase/database";
 import { ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage"
 import { useNavigate } from "react-router-dom";
+import { mediumTypes } from "../components/MediumTypesList";
 
 function Upload() {
   const [previewSrc, setPreviewSrc] = useState("../img/Upload-IMG.png");
@@ -115,17 +116,9 @@ function Upload() {
             {/* <input type="text" className="metadata-input" required value={medium} onChange={(event) => {setMedium(event.target.value)}} /><br/> */}
             <select className="metadata-input" onChange={(event) => {setMedium(event.target.value)}}>
               <option selected disabled></option>
-              <option value="Watercolor">Watercolor</option>
-              <option value="Photography">Photography</option>
-              <option value="Acrylic">Acrylic</option>
-              <option value="Sketches">Sketches</option>
-              <option value="Oil Painting">Oil Painting</option>
-              <option value="Digital Art">Digital Art</option>
-              <option value="Fabric">Fabric</option>
-              <option value="Clay">Clay</option>
-              <option value="Pottery">Pottery</option>
-              <option value="Painting">Painting</option>
-              <option value="Sculpture">Sculpture</option>
+              {mediumTypes.map((type) => {
+                return <option value={type}>{type}</option>
+              })}
             </select><br/>
             <label className="post-label">Description</label><br/>
             <textarea className="metadata-input desc-input" value={desc} onChange={(event) => {setDesc(event.target.value)}} /><br/>
