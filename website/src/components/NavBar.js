@@ -3,8 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
 
-function NavBar() {
+function NavBar({ currentPage }) {
     const navigate = useNavigate();
+
+    let homeClasses = "home-btn";
+    let galleryClasses = "my-gallery-btn";
+    if (currentPage === "home") {
+        homeClasses = homeClasses.concat(" nav-btn-orange");
+    } else if (currentPage === "profile") {
+        galleryClasses = galleryClasses.concat(" nav-btn-orange");
+    }
 
     return (
         <div className='navbar-container'>
@@ -12,16 +20,9 @@ function NavBar() {
                 <img className="logo" src="../img/HEART.png" alt="Heart Logo with box" onClick={() => navigate("/home")}/>
             </div>
             <div className="navbar-btn">
-                <div className="home-btn">HOME</div>
-                <div className="my-gallery-btn">MY GALLERY</div>
+                <div className={homeClasses} onClick={() => navigate("/home")}>HOME</div>
+                <div className={galleryClasses} onClick={() => navigate("/profile")}>MY GALLERY</div>
             </div>
-            {/* <div className='nav-buttons'>
-                <div className='search-btn'>
-                    <FontAwesomeIcon icon={faSearch} size='xl' />
-                    <input type="text" placeholder="" className="search-bar"/>
-                </div>
-            </div> */}
-
         </div>
     );
 }
