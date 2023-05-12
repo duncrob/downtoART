@@ -1,0 +1,30 @@
+.about-content-container {
+    display: flex;
+    height: 95px;
+    align-items: center;
+}
+
+.about-profile-pic {
+    height: 72px;
+    width: 72px;
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+.about-pic-container {
+    height: 72px;
+    width: 72px;
+    margin-right: 10px;
+}
+
+.about-name {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    margin-bottom: 5px;
+}
+
+.about-desc {
+    font-size: 13px;
+    line-height: 20px;
+}

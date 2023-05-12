@@ -82,7 +82,7 @@ function Home() {
       <div className="home-content">
         <div className="my-gallery-header">MY GALLERY</div>
         <div className="my-gallery-home-container">
-        {renderMyGallery()}
+          {renderMyGallery()}
         </div>
         <div className="home-gallery-nav">
           <div className="home-upload-btn" onClick={() => navigate("/upload")}>Upload Art</div>

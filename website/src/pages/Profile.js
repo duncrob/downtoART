@@ -2,13 +2,14 @@ import "./Profile.css";
 import NavBar from "../components/NavBar";
 import TabBar from "../components/TabBar";
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from '../firebase';
 import { Context } from "../App";
 import { useContext } from "react";
+import AboutUser from "../components/AboutUser";
 
 function Profile() {
-  console.log(auth.currentUser);
+  let navigate = useNavigate();
   const [posts, setPosts] = useContext(Context);
 
   function renderArt() {
@@ -19,7 +20,7 @@ function Profile() {
     return ownedPosts.map((post) => {
       return (
         <Link to={"/artview/" + post.id} state={{ owned: true }} className="image">
-            <img className="profile-inner-img" src={post["key-img-src"]} alt={post.title} />
+          <img className="profile-inner-img" src={post["key-img-src"]} alt={post.title} />
         </Link>
       )
     })
@@ -29,12 +30,12 @@ function Profile() {
     <div className='profile-container'>
       <NavBar />
       <div className="profile-content">
-        <div className="profile-header">{auth.currentUser.displayName}</div>
-        <div className="profile-bio">Just here to express myself through my art, and sometimes my Minecraft worlds.</div>
-        <hr />
+        <div className="profile-header">MY GALLERY</div>
         <div className="profile-gallery">
           {renderArt()}
         </div>
+        <div className="profile-upload-btn" onClick={() => navigate("/upload")}>Upload Art</div>
+        <AboutUser currentUser={auth.currentUser} />
       </div>
       <TabBar />
     </div>
