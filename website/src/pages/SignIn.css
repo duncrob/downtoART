@@ -4,8 +4,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 #firebaseui_container {
     width: 80%;
+}
+
+.welcome-img {
+    width: 50%;
+    margin-bottom: 72px;
+}
+
+.about-link {
+    margin-top: 80px;
+    font-weight: 300;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.mdl-button--raised.mdl-button--colored,.firebaseui-textfield.mdl-textfield .firebaseui-label::after {
+    background-color: #ffa800 !important;
+}
+
+.mdl-button--primary.mdl-button--primary {
+    color: #ffa800 !important;
 }

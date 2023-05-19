@@ -1,8 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import "./About.css";
 
 function About() {
+  const navigate = useNavigate();
+
   return (
     <div className='about-container'>
+      <img src="./img/HEART.png" className="about-heart-logo" onClick={() => navigate("/")} alt="Heart with box logo" />
       <div className="about-content">
         <div className="about-header">Down to Art, with HEART?</div>
         <div className="about-text">HEART is a platform that lowers the barrier of entry for anyone who wants to post and express their creative endeavors. Whether you're a seasoned artist or a beginner trying to explore your creativity, HEART welcomes you to share your work with the world. The heart of HEART is to bring people together.

@@ -24,7 +24,7 @@ function DiscoverCard({ post }) {
     
     return (    
         <div className="discover-content">
-            <img className="discover-img" src={post["key-img-src"]}/>
+            <img className="discover-img" src={post["key-img-src"]} onClick={() => navigate("/artview/" + post.id)} />
             <div className="discover-art-title">{post.title}</div>
             <div className="discover-creator">{user}</div>
             <div className="discover-desc">{post.desc}</div>

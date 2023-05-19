@@ -81,8 +81,6 @@ function Home() {
         </div>
         <div className="discover-header">Inspiration</div>
         {renderDiscoverCards()}
-        {/* <CategoryCard imgSrc="../img/following.png" title="Following" numPieces={2} />
-        {renderCards()} */}
         <div className="home-mediums-header">All Medium Types</div>
         <MediumTypesList />
       </div>

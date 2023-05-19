@@ -9,6 +9,8 @@ import Gallery from "./pages/Gallery"
 import Edit from './pages/Edit';
 import SignIn from './pages/SignIn';
 import About from './pages/About';
+import { Helmet } from 'react-helmet';
+import ScrollToTop from './components/ScrollToTop';
 
 export const Context = React.createContext();
 
@@ -17,8 +19,15 @@ function App() {
   const [posts, setPosts] = useState([]);
 
   return (
-    <Context.Provider value={[posts, setPosts]}>
+    <div>
+      <Helmet>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      </Helmet>
+      <Context.Provider value={[posts, setPosts]}>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path='/' element={<SignIn />} />
           <Route path='/home' element={<Home />} />
@@ -31,6 +40,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </Context.Provider>
+    </div>
   );
 }
 

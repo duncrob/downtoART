@@ -92,6 +92,12 @@ function Upload() {
     .then(() => {navigate("/home")})
   }
 
+  function addedPhoto() {
+    if (previewSrc !== "../img/Upload-IMG.png") {
+      return <p className="next-btn" onClick={() => {setUploadStage(2)}}>Next</p>
+    }
+  }
+
   function renderPageContent() {
     let pageContent;
     if (uploadStage === 1) {
@@ -102,14 +108,17 @@ function Upload() {
           </div>
           <label className="browse-label" htmlFor="file-img">{browseText}</label>
           <input type="file" id="file-img" accept="image/*" onChange={showPreview} />
-          <p className="next-btn" onClick={() => {setUploadStage(2)}}>Next</p>
+          {addedPhoto()}
         </div>
       )
     } else {
       pageContent = (
         <div className="upload-container">
           <img className="preview-img" src={previewSrc} />
-          <form className="upload-form" onSubmit={(e) => {post(e);}}>
+          <form className="upload-form" onSubmit={(e) => {
+            document.querySelector(".post-btn").classList.add("hidden");
+            post(e);
+          }}>
             <label className="post-label">Art Title <span className="red">*</span></label><br/>
             <input type="text" className="metadata-input" required value={title} onChange={(event) => {setTitle(event.target.value)}} /><br/>
             <label className="post-label" >Medium of Art <span className="red">*</span></label><br/>

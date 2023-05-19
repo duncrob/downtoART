@@ -32,15 +32,11 @@
 }
 
 .next-btn {
-    color: #9c9c9c;
+    color: black;
     font-weight: 600;
     font-size: 24px;
     align-self: flex-end;
     margin-right: 36px;
-}
-
-.next-btn:hover {
-    color: #FFA800;
 }
 
 .post-label {
@@ -66,7 +62,7 @@
 }
 
 .upload-form {
-    width: 75%;
+    width: 80%;
 }
 
 .optional-txt {
@@ -130,11 +126,11 @@
 }
 
 .upload-back-btn {
-    color: #404040;
+    color: #9c9c9c;
 }
 
 .post-btn {
-    color: #b3b3b3 !important;
+    color: black !important;
     font-size: 24px;
     font-weight: 600;
 }

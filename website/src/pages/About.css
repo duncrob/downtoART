@@ -5,7 +5,7 @@
 }
 
 .about-content{
-    margin-top: 100px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,8 +18,14 @@
     margin-bottom: 20px;
 }
 
-
 .about-text {
     padding: 5px;
     width: 80%;
+}
+
+.about-heart-logo {
+    height: 50px;
+    max-width: 135.81px;
+    margin-top: 20px;
+    margin-left: 20px;
 }

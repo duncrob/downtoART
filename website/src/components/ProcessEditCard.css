@@ -4,6 +4,7 @@
     height: 110px;
     margin-bottom: 14px;
     justify-content: space-between;
+    width: 100%;
 }
 
 .line {
@@ -36,6 +37,7 @@
     background-color: #f8f6f1;
     font-size: 16px;
     font-weight: 600;
+    width: 100%;
 }
 
 .title-input:focus {
